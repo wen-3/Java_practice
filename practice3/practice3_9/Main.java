@@ -2,41 +2,39 @@ package practice3.practice3_9;
 
 import java.util.Scanner;
 
-public class Main {
-    // 記帳成效2
+public class Main{
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int money[] = new int[7];
-        int up = 0;
-        int down = 0;
-        
-        for (int i = 0; i < money.length; i++){
-            money[i] = sc.nextInt();
+    Scanner sc = new Scanner(System.in);
+    int arr[] = new int[7];
+    for (int i = 0; i < arr.length; i++){
+        arr[i] = sc.nextInt();
+    }
+
+    int upcount = 0, downcount = 0;
+    
+    // 技巧 => 沒有規律，依據條件是否成立而改變 
+    int compare = arr[0];    // 占存變數
+    for (int i = 0; i < arr.length; i++){
+        if (i == 0){
+            continue;
         }
 
-        // 技巧 => 沒有規律，依據條件是否成立而改變 
-        int tmp = money[0];  // 占存變數
-        
-        for (int i = 1; i < money.length; i++){
-            if (money[i] - tmp > 1000){
-                continue;
-            }
-
-            tmp = money[i - 1];
-
-            if (tmp < money[i]){
-                up++;
-            }else if (tmp > money[i]){
-                down++;
-            }
+        if (arr[i] > compare && arr[i] - compare <= 1000){
+            upcount++;
+            compare = arr[i];
+        } else if (arr[i] < compare){
+            downcount++;
+            compare = arr[i];
         }
+    }
 
-        if (up > down){
-            System.out.println("變得會花");
-        }else if(up < down){
-            System.out.println("變得節省");
-        }else{
-            System.out.println("沒變");
-        }
+    String result = "沒變";
+    if (downcount > upcount){
+        result = "變得節省";
+    } else if (downcount < upcount){
+        result = "變得會花";
+    }
+
+    System.out.println(result);
     }
 }

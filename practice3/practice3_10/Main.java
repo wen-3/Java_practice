@@ -13,8 +13,8 @@ public class Main {
             int n = sc.nextInt();
             arr[i] = new int[n];   // 每筆將輸入幾個數值
             for (int j = 0; j < arr[i].length; j++){
-                int num = sc.nextInt();
-                arr[i][j] = num;
+                arr[i][j] = sc.nextInt();
+                
             }
         }
 
@@ -23,11 +23,11 @@ public class Main {
             boolean result = true;
             for (int j = 1; j < arr[i].length; j++){
                 if (arr[i][j - 1] % 2 == 0 && arr[i][j] % 2 != 0 || arr[i][j - 1] % 2 != 0 && arr[i][j] % 2 == 0){
-                    result = true;
-                }else{
-                    result = false;
-                    break;
+                    continue;
                 }
+
+                result = false;
+                break;
             }
             System.out.println(result);
         }
