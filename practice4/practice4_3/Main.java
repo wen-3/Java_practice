@@ -37,8 +37,15 @@ public class Main {
             }
         }
 
+        // 判斷存款目標是否達成
+        if (sumDeposit > goal){
+            month += 1;
+        } else {
+            month = -1;    // 未達成
+        }
+
         System.out.println(sumSpend);
         System.out.println(sumDeposit);
-        System.out.println((month + 1));
+        System.out.println(month);
     }
 }
