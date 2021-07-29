@@ -7,20 +7,30 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int nums[] = new int[n];
-        boolean result = true;
-        for (int i = 0; i < nums.length; i++){
-            nums[i] = sc.nextInt();
-        }
-        for (int i = 0; i < nums.length; i++){
-            int count = nums[i];
-            for (int k = 2; k < count; k++){
-                if (nums[i] % k == 0){
+        boolean isPrime[] = new boolean[n];
+       
+        for (int i = 0; i < n; i++){
+            int num = sc.nextInt();
+            boolean result = true;
+
+            // 記得要判斷使用者輸入數值1的情況
+            if (num == 1){
+                result = false;
+                isPrime[i] = result;
+                continue;
+            }
+
+            for (int j = 2; j < num; j++){
+                if (num % j == 0){
                     result = false;
-                    break;
                 }
             }
+            isPrime[i] = result;
+        }
+        
+        for (boolean result : isPrime){
             System.out.println(result);
         }
     }
 }
+

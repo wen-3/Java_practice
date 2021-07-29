@@ -8,16 +8,16 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int nums[] = new int[n];
+        int numArr[] = new int[n];
         boolean result = true;
-        for (int i = 0; i < nums.length; i++){
-            nums[i] = sc.nextInt();
+        
+        for (int i = 0; i < numArr.length; i++){
+            numArr[i] = sc.nextInt();
         }
         
-        // nums[0] 即為 a
-        int r = nums[1] / nums[0];
-        for (int i = 2; i < nums.length; i++){
-            if (nums[i] != nums[0] * Math.pow(r, i)){
+        int r = numArr[1] / numArr[0];
+        for (int i = 2; i < numArr.length; i++){
+            if (numArr[i] != numArr[i - 1] * r){
                 result = false;
                 break;
             }

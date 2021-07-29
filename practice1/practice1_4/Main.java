@@ -6,21 +6,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        float height = sc.nextFloat();
+        float height = sc.nextFloat() / 100;
         float weight = sc.nextFloat();
-        float bmi = (weight / ((height / 100) * (height / 100)));
+        float bmi = weight / (height * height);
+        String result = "過輕";
         if (bmi >= 35){
-            System.out.printf("%.1f 重度肥胖", bmi);
+        result = "重度肥胖";
         }else if (bmi >= 30){
-            System.out.printf("%.1f 中度肥胖", bmi);
+        result = "中度肥胖";
         }else if (bmi >= 27){
-            System.out.printf("%.1f 輕度肥胖", bmi);
+        result = "輕度肥胖";
         }else if (bmi >= 24){
-            System.out.printf("%.1f 過重", bmi);
+        result = "過重";
         }else if (bmi >= 18.5){
-            System.out.printf("%.1f 正常", bmi);
-        }else{
-            System.out.printf("%.1f 過輕", bmi);
+        result = "正常";
         }
+
+        System.out.printf("%.1f %s", bmi, result);
     }
 }
