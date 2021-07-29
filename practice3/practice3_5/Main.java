@@ -15,7 +15,7 @@ public class Main {
         
         // 每天可移動距離
         for (int i = 1; i < k; i++){
-            n = (int)(n - (tmp * 0.1)); 
+            n = n - (int)(tmp * 0.1);    // 浮點數的四則運算會有小數點精確度問題(須注意 (int)放置位置)
             sumMoveDistance += n;
         }
 

@@ -14,10 +14,7 @@ public class Main {
                 break;
             }
 
-            // 找出輸入的(第一個)和(第二個)的最大公因數
-            // 找出(得出兩數值的最大公因數數值)和(第三個)的最大公因數
-            // 找出(得出兩數值的最大公因數數值)和(第X個)的最大公因數...
-            for (int i = num; i >= 2; i--){
+            for (int i = num; i >= 1; i--){
                 if (gcd % i == 0 && num % i == 0){
                     gcd = i;  // 得出兩數值的最大公因數數值
                     break;
@@ -25,21 +22,28 @@ public class Main {
             }
         }
 
-        System.out.print(gcd + "=");
-
         // 將最大公因數做質因數分解
         // 補充 - 質因數分解
-        int n = gcd;
-        for (int i = 2; i < n; i++){
-            int count = 0;
-            while (n % i == 0){
-                count++;
-                n = n / i;  // 除到不能整除為止
-            }
-            if (count > 0){
-                System.out.print(i + "^" + count);
-                if (n != 1){   // n分解到最後會變成1，若非1，代表n還可繼續分解
-                    System.out.print("*");
+        if (gcd == 1){
+            System.out.print(gcd + "=1^1");
+        }else {
+            System.out.print(gcd + "=");
+            for (int i = 1; i <= gcd; i++){   // 注意 gcd 可能是質數(也就是說包含自己)，條件式為 <= gcd，而非 < gcd
+                int count = 0;
+                if (i == 1){
+                    System.out.print(i + "^1" + "*");
+                    continue;
+                }
+                while (gcd % i == 0){
+                    gcd = gcd / i;  // 除到不能整除為止
+                    count++;
+                }
+
+                if (count > 0){
+                    System.out.print(i + "^" + count);
+                    if (gcd != 1){   // n分解到最後會變成1，若非1，代表n還可繼續分解
+                        System.out.print("*");
+                    }
                 }
             }
         }
