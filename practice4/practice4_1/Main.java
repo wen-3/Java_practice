@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int sum = 0;
-        int tmp = 0;   // 代表前一筆的金額，假設初始值為 0
+        int beforeNum = 0;   // 代表前一筆的金額，假設初始值為 0
         int count = 0;   // 修改前一筆次數
         while (true){
             int num = sc.nextInt();
@@ -21,7 +21,7 @@ public class Main {
             if (num < 0){
                 count++;   // 修改前一筆次數
                 if (count == 1){
-                    sum -= tmp;
+                    sum -= beforeNum;
                 }
                 continue;
             }
@@ -30,8 +30,7 @@ public class Main {
 
             // 計算總金額
             sum += num;
-
-            tmp = num;  // 代表前一筆的金額
+            beforeNum = num;  // 代表前一筆的金額
         }
 
         System.out.println(sum);
