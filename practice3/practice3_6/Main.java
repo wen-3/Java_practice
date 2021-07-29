@@ -8,38 +8,33 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int c = sc.nextInt();  // 每次消耗的體力
         int g = sc.nextInt();  // 隔天的體力增長值
-        int n;  // 每天的運動次數
-        
-        int nc; // 每天的消耗值
-        int limit = 1000;  // 體力上限
-        
-        // day 每天消耗  < 體力上限
-        //  0    n*c    <  limit
-        //  1    n*c    <  limit + g*(nc/100)
-        //  2  n*(c-20) <  limit + g*(nc/100)    // (c-20) > 50
-        // => g*(nc/100) ?
-        // c - 20 => day 3 5 7 => count 2 4 6
-        int count = 0;
+
+        int bodyLimit = 1000;  // 體力上限
+        int day = 0;   // 運動天數
         while (true){
-            n = sc.nextInt();
+            int n = sc.nextInt();  // 每天的運動次數
             if (n == -1){
                 break;
             }
 
-            count++;
-            
-            if (count > 0 && count % 2 == 0){
-                c = c - 20;
-            }
-            nc = n * c;
-
-            if (nc > limit){
-                nc = (n - 1) * c;
+            day++;
+            if (day % 2 == 0){
+                c -= 20;
             }
 
-            limit = limit + g * (nc / 100);
+            // 每天的消耗值
+            int sum = 0;
+            for (int i = 0; i < n; i++){
+                sum += c;
+                if (sum > bodyLimit){
+                    sum = sum - c;
+                    break;
+                }
+            }
+
+            bodyLimit += (sum / 100) * g;
         }
 
-        System.out.println(limit);
+        System.out.println(bodyLimit);
     }
 }
