@@ -7,17 +7,18 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int bpm = sc.nextInt();
-        if (bpm > 160){
-            System.out.println("高強度");
-        }else if (bpm >= 140){
-            System.out.println("中度");
-        }else if (bpm >= 120){
-            System.out.println("輕中度");
-        }else if (bpm >= 110){
-            System.out.println("輕度");
-        }else{
-            System.out.println("非運動狀態");
+        String result = "非運動狀態";
+
+        if (bpm >= 160){
+            result = "高強度";
+        } else if (bpm >= 140){
+            result = "中度";
+        } else if (bpm >= 120){
+            result = "輕中度";
+        } else if (bpm >= 110){
+            result = "輕度";
         }
 
+        System.out.println(result);
     }
 }
