@@ -9,23 +9,17 @@ public class Main {
         int n = sc.nextInt();  // 初始速度
         int k = sc.nextInt();  // 每天移動的時間
         int m = sc.nextInt();  // 環島的總距離
-        int hourDistance;
-        int sumDistance = 0;   // 每天可移動的總距離
-        // m = n * k
-        // n 0.9n 0.8n ...
-        // 1   2   3   ... k
 
+        int sumMoveDistance = n;   // 每天可移動的總距離
+        int tmp = n;
+        
         // 每天可移動距離
-        for (int i = 0; i < k; i++){
-            if (i == 0){
-                hourDistance = n;
-            }else{
-                hourDistance = (int)(n * (1 - 0.1 * i));
-            }
-            sumDistance += hourDistance;
+        for (int i = 1; i < k; i++){
+            n = (int)(n - (tmp * 0.1)); 
+            sumMoveDistance += n;
         }
 
         // 輸出在第幾天時環島成功
-        System.out.println((int)(m / sumDistance + 1));
+        System.out.println((int)(m / sumMoveDistance + 1));
     }
 }

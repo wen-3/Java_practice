@@ -6,30 +6,27 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int day = 0;
-        int sumTime = 0;
+        String result = "有運動";
+
+        int day = 0, sumTime = 0;
         for (int i = 0; i < 7; i++){
             int time = sc.nextInt();
-            sumTime += time;
             if (time != 0){
                 day++;
+                sumTime += time;
             }
         }
 
         if (sumTime >= 100){
-            if (day > 5){
-                System.out.println("過度運動");
-            }else if (day == 5){
-                System.out.println("有運動且有效");
-            }else{
-                System.out.println("有運動");
+            if (day == 5){
+                result = "有運動且有成效";
+            } else if (day > 5){
+                result = "過度運動";
             }
-        }else{
-            if (day >= 5){
-                System.out.println("有運動");
-            }else{
-                System.out.println("偷懶");
-            }
+        } else {
+            result = "偷懶";
         }
+        
+        System.out.println(result);
     }
 }

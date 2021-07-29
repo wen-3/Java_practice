@@ -7,22 +7,19 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int arr[] = new int[n];
-        boolean result;
-        for (int i = 0; i < n; i++){
+        int numArr[] = new int[n];
+        for (int i = 0; i < numArr.length; i++){
             int num = sc.nextInt();
-            arr[i] = num;
+            numArr[i] = num;
         }
-        result = fun(arr);
-        System.out.println(result);
-    }
-
-    public static boolean fun(int[] arr){
-        for (int i = 3; i < arr.length; i++){
-            if (arr[i] != arr[i - 2] * arr[i - 1]){
-                return false;
+        
+        boolean result = true;
+        for (int i = 2; i < numArr.length; i++){
+            if (numArr[i - 2] * numArr[i - 1] != numArr[i]){
+                result = false;
             }
         }
-        return true;
+
+        System.out.println(result);
     }
 }
