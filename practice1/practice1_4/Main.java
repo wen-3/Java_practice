@@ -11,15 +11,15 @@ public class Main {
         float bmi = weight / (height * height);
         String result = "過輕";
         if (bmi >= 35){
-        result = "重度肥胖";
+            result = "重度肥胖";
         }else if (bmi >= 30){
-        result = "中度肥胖";
+            result = "中度肥胖";
         }else if (bmi >= 27){
-        result = "輕度肥胖";
+            result = "輕度肥胖";
         }else if (bmi >= 24){
-        result = "過重";
+            result = "過重";
         }else if (bmi >= 18.5){
-        result = "正常";
+            result = "正常";
         }
 
         System.out.printf("%.1f %s", bmi, result);
