@@ -6,21 +6,21 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int tmp = 0;
+        int max = 0;
         while (true){
             int x = sc.nextInt();
             if (x == -1){
                 break;
             }
 
-            if (x > tmp){
-                tmp = x;
+            if (x > max){
+                max = x;
             }
         }
 
-        if (tmp > 60){
+        if (max > 60){
             System.out.println("不出門");
-        }else if (tmp > 30){
+        }else if (max > 30){
             System.out.println("帶傘出門");
         }else{
             System.out.println("出門");
