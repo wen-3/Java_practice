@@ -25,29 +25,22 @@ public class Main {
 
         // 排序
         int k = sc.nextInt();  // 排序的準則
-        switch(k){
-            case 1:   // 由小到大排序
-                for (int i = 1; i < count; i++){
-                    for (int j = 0 ; j < count - i; j++){
+        
+        for (int i = 1; i < count; i++){
+            for (int j = 0 ; j < count - i; j++){
+                switch (k) {
+                    case 1:   // 由小到大排序
                         if (student[j][1] > student[j + 1][1]){
-                            int tmp[] = student[j + 1];
-                            student[j + 1] = student[j];
-                            student[j] = tmp;
+                            swap(student, j, j + 1);
                         }
-                    }
-                }
-                break;
-            case 2:   // 由大到小排序
-                for (int i = 1; i < count; i++){
-                    for (int j = 0 ; j < count - i; j++){
+                        break;
+                    case 2:   // 由大到小排序
                         if (student[j][1] < student[j + 1][1]){
-                            int tmp[] = student[j];
-                            student[j] = student[j + 1];
-                            student[j + 1] = tmp;
+                            swap(student, j, j + 1);
                         }
-                    }
+                        break;
                 }
-                break;
+            }
         }
 
         // 印出
@@ -63,5 +56,12 @@ public class Main {
             newArr[i] = arr[i];
         }
         return newArr;
+    }
+
+    public static int[][] swap(int arr[][], int n1, int n2){
+        int tmp[] = arr[n1];
+        arr[n1] = arr[n2];
+        arr[n2] = tmp; 
+        return arr;
     }
 }
