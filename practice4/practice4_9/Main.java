@@ -11,7 +11,6 @@ public class Main {
         while (true){
             int x = sc.nextInt();
             if (x == -1){
-                count--;
                 break;
             }
             if (count == arr.length){
@@ -22,7 +21,7 @@ public class Main {
             count++;
         }
 
-        for (int i = count; i >= 0; i--){
+        for (int i = count - 1; i >= 0; i--){
             System.out.println(arr[i]);
         }
     }
