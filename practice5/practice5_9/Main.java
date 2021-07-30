@@ -23,30 +23,36 @@ public class Main {
             count++;
         }
 
-        // 由小到大排序
-        for (int i = 1; i < count; i++){
-            for (int j = 0; j < count - i; j++){
-                if (student[j][1] > student[j + 1][1]){    // 小 => 大
-                    int tmp[] = student[j];
-                    student[j] = student[j + 1];
-                    student[j + 1] = tmp;
-                }
-            }
-        }
-
-        // 印出
+        // 排序
         int k = sc.nextInt();  // 排序的準則
         switch(k){
             case 1:   // 由小到大排序
-                for (int i = 0; i < count; i++){
-                    System.out.println(student[i][0] + "." + student[i][1]);
+                for (int i = 1; i < count; i++){
+                    for (int j = 0 ; j < count - i; j++){
+                        if (student[j][1] > student[j + 1][1]){
+                            int tmp[] = student[j + 1];
+                            student[j + 1] = student[j];
+                            student[j] = tmp;
+                        }
+                    }
                 }
                 break;
             case 2:   // 由大到小排序
-                for (int i = count; i >= 0; i--){
-                    System.out.println(student[i][0] + "." + student[i][1]);
+                for (int i = 1; i < count; i++){
+                    for (int j = 0 ; j < count - i; j++){
+                        if (student[j][1] < student[j + 1][1]){
+                            int tmp[] = student[j];
+                            student[j] = student[j + 1];
+                            student[j + 1] = tmp;
+                        }
+                    }
                 }
                 break;
+        }
+
+        // 印出
+        for (int i = 0; i < count; i++){
+            System.out.println(student[i][0] + "." + student[i][1]);
         }
     }
 
