@@ -15,6 +15,7 @@ public class Main {
             arr[i][1] = score;
         }
         
+        // 氣泡排序法(由大到小)
         for (int i = 1; i < arr.length; i++){
             for (int j = 0; j < arr.length - i; j++){
                 if (arr[j][1] < arr[j + 1][1]){   // 小 < 大
