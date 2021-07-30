@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int arr[][]= new int[2][2];
+        int student[][]= new int[2][2];
         int count = 0;
         while (true){
             int score = sc.nextInt();
@@ -14,22 +14,22 @@ public class Main {
                 break;
             }
 
-            if (count == arr.length){
-                arr = doubleArr(arr);
+            if (count == student.length){
+                student = doubleArr(student);
             }
 
-            arr[count][0] = count + 1;
-            arr[count][1] = score;
+            student[count][0] = count + 1;
+            student[count][1] = score;
             count++;
         }
 
         // 由小到大排序
         for (int i = 1; i < count; i++){
             for (int j = 0; j < count - i; j++){
-                if (arr[j][1] > arr[j + 1][1]){    // 小 => 大
-                    int tmp[] = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = tmp;
+                if (student[j][1] > student[j + 1][1]){    // 小 => 大
+                    int tmp[] = student[j];
+                    student[j] = student[j + 1];
+                    student[j + 1] = tmp;
                 }
             }
         }
@@ -39,12 +39,12 @@ public class Main {
         switch(k){
             case 1:   // 由小到大排序
                 for (int i = 0; i < count; i++){
-                    System.out.println(arr[i][0] + "." + arr[i][1]);
+                    System.out.println(student[i][0] + "." + student[i][1]);
                 }
                 break;
             case 2:   // 由大到小排序
                 for (int i = count; i >= 0; i--){
-                    System.out.println(arr[i][0] + "." + arr[i][1]);
+                    System.out.println(student[i][0] + "." + student[i][1]);
                 }
                 break;
         }
