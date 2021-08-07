@@ -69,3 +69,15 @@
 * practice5_8 => [節外生枝](http://engineertraining.programmer101.org/problem/ft8106)
 * practice5_9 => [學生成績表](http://engineertraining.programmer101.org/problem/ft8107)
 * practice5_10 => [骰子遊戲3](http://engineertraining.programmer101.org/problem/ft8108)
+
+---
+
+### test
+* test1 => [矩陣翻轉](http://engineertraining.programmer101.org/problem/ft9101)
+* test2 => [填空練習](http://engineertraining.programmer101.org/problem/ft9102)
+* test3 => [統計字元類型](http://engineertraining.programmer101.org/problem/ft9103)
+* test4 => [計算重複數字](http://engineertraining.programmer101.org/problem/ft9104)
+* test5 => [計算長條圖中的正方形面積](http://engineertraining.programmer101.org/problem/ft9106)
+* test6 => [會不斷讀數字的機器](http://engineertraining.programmer101.org/problem/ft9107)
+* test7 => [找出連續正整數](http://engineertraining.programmer101.org/problem/ft9108)
+* test8 => [找出孤獨的數字](http://engineertraining.programmer101.org/problem/ft9105)
